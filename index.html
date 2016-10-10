@@ -8,11 +8,32 @@
   </head>
   <body>
     <form id="ping-pong-form">
+      <h2>Ping Pong</h2>
       <label for="goal">Enter a number:</label>
       <input id="goal" type="number">
       <button type="submit">Submit</button>
     </form>
+
+    <form id="calculator-form">
+      <h2>Calculate</h2>
+      <label for="calculatorFirst">Enter a number:</label>
+      <input id="calculatorFirst" type="number">
+      <div class="radio">
+        <label>
+        <input type="radio" name="calculatorType" value="addition"> + </label>
+        <label>
+        <input type="radio" name="calculatorType" value="subtract"> - </label>
+        <label>
+        <input type="radio" name="calculatorType" value="multiply"> * </label>
+        <label>
+        <input type="radio" name="calculatorType" value="divide"> / </label>
+      </div>
+      <label for="calculatorSecond">Enter a number:</label>
+      <input id="calculatorSecond" type="number">
+      <button type="submit">Submit</button>
+    </form>
     <form id="signup">
+      <h2>Sign Up</h2>
       <label for="email">Enter your email:</label>
       <input id="email" type="text">
       <button type="submit">Submit</button>
