@@ -22,6 +22,20 @@ Calculator.prototype.pingPong = function(goal) {
   return output;
 };
 
+Calculator.prototype.calculator = function(calculatorFirst, calculatorType, calculatorSecond) {
+  var calculatorOutput;
+  if (calculatorType === "subtract") {
+    calculatorOutput = calculatorFirst - calculatorSecond;
+  } else if (calculatorType === "divide") {
+    calculatorOutput = calculatorFirst / calculatorSecond;
+  } else if (calculatorType === "multiply") {
+    calculatorOutput = calculatorFirst * calculatorSecond;
+  } else if (calculatorType === "addition") {
+    calculatorOutput = calculatorFirst + calculatorSecond;
+  }
+  return calculatorOutput;
+};
+
 exports.calculatorModule = Calculator;
 
 },{}],3:[function(require,module,exports){
@@ -36,11 +50,25 @@ Weather.prototype.getWeather = function(city) {
   }).fail(function(error) {
     $('.showWeather').text(error.responseJSON.message);
   });
-}
+};
 
 exports.weatherModule = Weather;
 
 },{"./../.env":1}],4:[function(require,module,exports){
+var Calculator = require('./../js/pingpong.js').calculatorModule;
+
+$(document).ready(function() {
+  $('#calculator-form').submit(function(event) {
+    event.preventDefault();
+    var calculatorFirst = parseInt($('#calculatorFirst').val());
+    var calculatorSecond = parseInt($('#calculatorSecond').val());
+    var calculatorType = $("input:radio[name='calculatorType']:checked").val();
+    var simpleCalculator = new Calculator("hot pink");
+    var calculatorOutput = simpleCalculator.calculator(calculatorFirst, calculatorType, calculatorSecond);
+    $('#solution').prepend("<p>" + calculatorOutput + "</p>");
+  });
+});
+
 var Calculator = require('./../js/pingpong.js').calculatorModule;
 
 $(document).ready(function() {

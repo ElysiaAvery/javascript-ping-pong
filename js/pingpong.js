@@ -18,4 +18,18 @@ Calculator.prototype.pingPong = function(goal) {
   return output;
 };
 
+Calculator.prototype.calculator = function(calculatorFirst, calculatorType, calculatorSecond) {
+  var calculatorOutput;
+  if (calculatorType === "subtract") {
+    calculatorOutput = calculatorFirst - calculatorSecond;
+  } else if (calculatorType === "divide") {
+    calculatorOutput = calculatorFirst / calculatorSecond;
+  } else if (calculatorType === "multiply") {
+    calculatorOutput = calculatorFirst * calculatorSecond;
+  } else if (calculatorType === "addition") {
+    calculatorOutput = calculatorFirst + calculatorSecond;
+  }
+  return calculatorOutput;
+};
+
 exports.calculatorModule = Calculator;
